@@ -1,4 +1,9 @@
-public class Corredor implements Runnable{
+/*
+ * @Author: Jonatas Leon 
+ *
+ */
+ 
+ public class Corredor implements Runnable{
 	private String nome;
 	private int numero;
 	private int voltaAtual;

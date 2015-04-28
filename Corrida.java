@@ -7,9 +7,10 @@ import java.util.ArrayList;
 import java.util.Set;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.List;
 
 public class Corrida {
-	private ArrayList<Corredor> corredores;
+	private List<Corredor> corredores;
 	private Corredor[] colocacao;
 	private static int posicao;
 	private final int voltas;
@@ -21,7 +22,7 @@ public class Corrida {
 		corredores = new ArrayList<>();
 		this.fim = new HashSet<Fim>();
 		voltas = 25;
-		posicao = 0;
+		Corrida.posicao = 0;
 	}
 	
 	public static Corrida getInstance() {
@@ -31,7 +32,7 @@ public class Corrida {
 		return instance;
 	}
 	
-	public void addCorredor(Corredor corredor) {
+	public synchronized void addCorredor(Corredor corredor) {
 		corredores.add(corredor);
 	}
 	
@@ -47,7 +48,7 @@ public class Corrida {
 		return corredores.size();
 	}
 	 
-    public void addFim(Fim fim) {
+    public void addFimListener(Fim fim) {
         this.fim.add(fim);
     }
  
@@ -60,10 +61,14 @@ public class Corrida {
 	}
 	
 	public void comecarCorrida() {
-		colocacao = new Corredor[corredores.size()];
+		colocacao = new Corredor[getCorredoresTotal()];
 		for(Corredor corredor : corredores) {
 			new Thread(corredor).start();
 		}
+	}
+	
+	public int getCorredoresTotal() {
+		return corredores.size();
 	}
 	
 	public void fimCorrida() {       

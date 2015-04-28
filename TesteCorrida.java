@@ -9,23 +9,25 @@ public class TesteCorrida {
 	public static void main(String[] args) {
 		Corrida corrida = Corrida.getInstance();
 		
-		Corrida.getInstance().addCorredor(new Corredor("Jonatas", 7, corrida));
-		Corrida.getInstance().addCorredor(new Corredor("Eduardo", 8, corrida));
-		Corrida.getInstance().addCorredor(new Corredor("Geronimo", 59, corrida));
-		Corrida.getInstance().addCorredor(new Corredor("Power Ranger Azul", 9, corrida));
+		corrida.addCorredor(new Corredor("Jonatas", 95, corrida));
+		corrida.addCorredor(new Corredor("Eduardo", 93, corrida));
+		corrida.addCorredor(new Corredor("Banner", 62, corrida));
+		corrida.addCorredor(new Corredor("Stark", 72, corrida));
+		corrida.addCorredor(new Corredor("Barton", 64, corrida));
+		corrida.addCorredor(new Corredor("Rogers", 40, corrida));
 		
-		Corrida.getInstance().addFim(new Fim() {
+		corrida.addFimListener(new Fim() {
 			
 			@Override
-			public void acabou(Corredor[] colocacao) {
-				for(int i = 0; i < colocacao.length; i++) {
-					System.out.printf("%s\n", colocacao[i].toString());
+			public synchronized void acabou(Corredor[] colocacao) {
+				for(Corredor corredor: colocacao) {
+					System.out.printf("%s\n", corredor);
 				}
-				System.gc();
+				System.exit(0);
 			}
 			
 		}); 
 		
-		Corrida.getInstance().comecarCorrida();
+		corrida.comecarCorrida();
 	}
 }

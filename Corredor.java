@@ -44,8 +44,9 @@
 	
 	public void run() {
 		for(int i = 0; i < corrida.getVoltas();) {
+			
 			try {
-				Thread.sleep(1);
+				Thread.sleep(10);
 				addVolta();
 				addVoltasTotal();
 				i++;

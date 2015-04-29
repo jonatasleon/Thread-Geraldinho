@@ -16,20 +16,11 @@ public class Corrida {
 	private final int voltas;
 	private Set<Fim> fim;
 	
-	private static Corrida instance;
-	
-	private Corrida() {
+	public Corrida(int voltas) {
 		corredores = new ArrayList<>();
 		this.fim = new HashSet<Fim>();
-		voltas = 25;
+		this.voltas = voltas;
 		Corrida.posicao = 0;
-	}
-	
-	public static Corrida getInstance() {
-		if(instance == null) {
-			instance = new Corrida();
-		}
-		return instance;
 	}
 	
 	public synchronized void addCorredor(Corredor corredor) {
@@ -69,6 +60,10 @@ public class Corrida {
 	
 	public int getCorredoresTotal() {
 		return corredores.size();
+	}
+	
+	public void addVoltaCompletaListenerToCorredores(Completou completou) {
+		for(Corredor corredor: corredores) corredor.setOnVoltaCompletaListener(completou);
 	}
 	
 	public void fimCorrida() {       

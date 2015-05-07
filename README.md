@@ -21,3 +21,8 @@ Código desenvolvido para apresentação sobre a utilização prática de Thread
 Por mais simples que este código possa ser, ele foi de grande utilidade para o entendimento de conceitos até então pouco dominados, como por exemplo: Interface, Listerner, Callback, Threads, sychronized, static, Singleton.
 
 Sendo assim, agradeço aqui ao Prof.º José Geraldo pela proposta desse trabalho, que por mais simples que tenha sido me ajudou na aprimoração sobre a linguagem Java.
+
+License
+----
+
+MIT

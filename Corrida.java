@@ -3,7 +3,7 @@
  *
  */
  
-import java.util.ArrayList;
+import java.util.Vector;
 import java.util.Set;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -17,7 +17,7 @@ public class Corrida {
 	private Set<Fim> fim;
 	
 	public Corrida(int voltas) {
-		corredores = new ArrayList<>();
+		corredores = new Vector<>();
 		this.fim = new HashSet<Fim>();
 		this.voltas = voltas;
 		Corrida.posicao = 0;

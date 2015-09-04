@@ -39,13 +39,13 @@ public class Corrida {
 		return corredores.size();
 	}
 	 
-    public void addFimListener(Fim fim) {
-        this.fim.add(fim);
-    }
- 
-    public void removeListener(Fim fim) {
-        this.fim.remove(fim);
-    }
+	public void addFimListener(Fim fim) {
+	this.fim.add(fim);
+	}
+	
+	public void removeListener(Fim fim) {
+	this.fim.remove(fim);
+	}
 	
 	public int getVoltas() {
 		return voltas;
@@ -68,10 +68,10 @@ public class Corrida {
 	
 	public void fimCorrida() {       
 		Iterator<Fim> iterator = this.fim.iterator();
- 
-        while (iterator.hasNext()) {
-            Fim fim = (Fim) iterator.next();
-            fim.acabou(colocacao);
-        }
+		
+		while (iterator.hasNext()) {
+		    Fim fim = (Fim) iterator.next();
+		    fim.acabou(colocacao);
+		}
 	}
 }
